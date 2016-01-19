@@ -1,0 +1,24 @@
+The side that is initially facing up: tails
+1. The side that is facing up: tails
+2. The side that is facing up: tails
+3. The side that is facing up: heads
+4. The side that is facing up: tails
+5. The side that is facing up: heads
+6. The side that is facing up: heads
+7. The side that is facing up: heads
+8. The side that is facing up: heads
+9. The side that is facing up: heads
+10. The side that is facing up: tails
+11. The side that is facing up: heads
+12. The side that is facing up: heads
+13. The side that is facing up: tails
+14. The side that is facing up: tails
+15. The side that is facing up: tails
+16. The side that is facing up: tails
+17. The side that is facing up: heads
+18. The side that is facing up: heads
+19. The side that is facing up: tails
+20. The side that is facing up: heads
+-------------------Statistics-------------------
+11 times that heads is facing up
+9 times that tails is facing up

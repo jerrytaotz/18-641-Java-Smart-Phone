@@ -1,0 +1,62 @@
+--------------------Case 1--------------------
+Checking a parked car...
+Parked Time (Minutes): 180
+Purchased Time (Minutes): 190
+The parked car is in legal!
+--------------------Case 2--------------------
+Checking a parked car...
+Parked Time (Minutes): 180
+Purchased Time (Minutes): 180
+The parked car is in legal!
+--------------------Case 3--------------------
+Checking a parked car...
+The parked car is illegal!
+The Ticket
+The illegally parked car's make: Volkswagen
+The illegally parked car's model: Passat
+The illegally parked car's color: Blue
+The illegally parked car's license number: PA18641
+Parked Time (Minutes): 180
+Purchased Time (Minutes): 150
+The fine (dollar): 25
+This ticket issued by: Jiyang Tao
+The badge number: 11140614
+--------------------Case 4--------------------
+Checking a parked car...
+The parked car is illegal!
+The Ticket
+The illegally parked car's make: Volkswagen
+The illegally parked car's model: Passat
+The illegally parked car's color: Blue
+The illegally parked car's license number: PA18641
+Parked Time (Minutes): 180
+Purchased Time (Minutes): 120
+The fine (dollar): 25
+This ticket issued by: Jiyang Tao
+The badge number: 11140614
+--------------------Case 5--------------------
+Checking a parked car...
+The parked car is illegal!
+The Ticket
+The illegally parked car's make: Volkswagen
+The illegally parked car's model: Passat
+The illegally parked car's color: Blue
+The illegally parked car's license number: PA18641
+Parked Time (Minutes): 180
+Purchased Time (Minutes): 60
+The fine (dollar): 35
+This ticket issued by: Jiyang Tao
+The badge number: 11140614
+--------------------Case 6--------------------
+Checking a parked car...
+The parked car is illegal!
+The Ticket
+The illegally parked car's make: Volkswagen
+The illegally parked car's model: Passat
+The illegally parked car's color: Blue
+The illegally parked car's license number: PA18641
+Parked Time (Minutes): 180
+Purchased Time (Minutes): 48
+The fine (dollar): 45
+This ticket issued by: Jiyang Tao
+The badge number: 11140614
