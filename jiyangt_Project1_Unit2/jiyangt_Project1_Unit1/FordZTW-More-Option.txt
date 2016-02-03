@@ -1,0 +1,9 @@
+Auto>>Focus Wagon ZTW
+Auto>>18445
+Auto>>2
+Item>>Brakes/Traction Control>>2Option>>Standard>>0
+Option>>ABS>>400
+Option>>ABS with Advance Trac>>1625
+Item>>Transmission>>2
+Option>>Automatic>>0
+Option>>Standard>>-815
