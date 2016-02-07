@@ -1,22 +1,0 @@
-Auto>>Focus Wagon ZTW
-Auto>>18445
-Auto>>5
-Item>>Color>>10
-Option>>Fort Knox Gold Clearcoat Metallic>>0
-Option>>Liquid Grey Clearcoat Metallic>>0
-Option>>Infra-Red Clearcoat>>0
-Option>>Grabber Green Clearcoat Metallic>>0
-Option>>Sangria Red Clearcoat Metallic>>0
-Option>>French Blue Clearcoat Metallic>>0
-Option>>Twilight Blue Clearcoat Metallic>>0
-Option>>CD Silver Clearcoat Metallic>>0
-Option>>Pitch Black Clearcoat>>0
-Option>>Cloud 9 White Clearcoat>>0
-Item>>Transmission>>2
-Option>>Automatic>>0
-Option>>Standard>>-815
-Item>>Brakes/Traction Control>>3Option>>Standard>>0
-Option>>ABS>>400
-Option>>ABS with Advance Trac>>1625Item>>Side Impact Air Bags>>2Option>>None>>0
-Option>>Selected>>350Item>>Power Moonroof>>2Option>>None>>0
-Option>>Selected>>595
