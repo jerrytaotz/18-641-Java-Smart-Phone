@@ -1,5 +1,6 @@
 ==========================================================
 ||      Read the Normal file, wrong file name first     ||
+||                Test the Update Method                ||
 ==========================================================
 Please input file name again:FordZTW.txt
 *************************************************************
@@ -34,15 +35,50 @@ Base Price: $18445.0
 5. Power Moonroof:
   1. None: $0.0
   2. Selected: $595.0
+1. Update the price of Pitch Black Clearcoat in Color from 0 to 100
+2. Update the name of OptionSet 'Color' to 'Car's Body Color'
+*************************************************************
+*             Car's Model And Basic Information             *
+*************************************************************
+Model: Focus Wagon ZTW
+Base Price: $18445.0
+*************************************************************
+*                       Car's Options                       *
+*************************************************************
+1. Car's Body Color:
+  1. Fort Knox Gold Clearcoat Metallic: $0.0
+  2. Liquid Grey Clearcoat Metallic: $0.0
+  3. Infra-Red Clearcoat: $0.0
+  4. Grabber Green Clearcoat Metallic: $0.0
+  5. Sangria Red Clearcoat Metallic: $0.0
+  6. French Blue Clearcoat Metallic: $0.0
+  7. Twilight Blue Clearcoat Metallic: $0.0
+  8. CD Silver Clearcoat Metallic: $0.0
+  9. Pitch Black Clearcoat: $100.0
+  10. Cloud 9 White Clearcoat: $0.0
+2. Transmission:
+  1. Automatic: $0.0
+  2. Standard: $-815.0
+3. Brakes/Traction Control:
+  1. Standard: $0.0
+  2. ABS: $400.0
+  3. ABS with Advance Trac: $1625.0
+4. Side Impact Air Bags:
+  1. None: $0.0
+  2. Selected: $350.0
+5. Power Moonroof:
+  1. None: $0.0
+  2. Selected: $595.0
 ==========================================================
 ||                 Read the abnormal file               ||
+||            Test Exception and Self-Healing           ||
 ||              1. Missing Base Price                   ||
 ||              2. Missing an Option Price              ||
 ||              3. Missing an Option Name               ||
 ||              4. Exceeding OptionSet                  ||
 ||              5. Missing Option                       ||
 ==========================================================
-Please input the base price to continue:18845
+Please input the base price to continue:18875
 Option>>Brakes/Traction Control>>ABS>>>>Option
 Please input the price of the Option 'ABS' to continue:400
 Option>>Side Impact Air Bags>>>>0>>Option
@@ -55,7 +91,7 @@ Please input the option price: 0
 *             Car's Model And Basic Information             *
 *************************************************************
 Model: Focus Wagon ZTW
-Base Price: $18845.0
+Base Price: $18875.0
 *************************************************************
 *                       Car's Options                       *
 *************************************************************
