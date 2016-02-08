@@ -24,28 +24,30 @@ public class Driver {
 		System.out.println("||                Test the Update Method                ||");
 		System.out.println("==========================================================");
 		BuildAuto auto = new BuildAuto();
-		auto.BuildAuto("FordZTW1.txt");
-		auto.printAuto("FordZTW1.txt");
-		System.out.println("1. Update the price of Pitch Black Clearcoat in Color from 0 to 100");
-		auto.updateOptionPrice("Focus Wagon ZTW", "Color", "Pitch Black Clearcoat", 100);
-		System.out.println("2. Update the name of OptionSet 'Color' to 'Car's Body Color'");
-		auto.updateOptionSetName("Focus Wagon ZTW", "Color", "Car's Body Color");
-		auto.printAuto("FordZTW.txt");
-		
-		/**
-		 * Read the abnormal source file
-		 */
-		System.out.println("==========================================================");
-		System.out.println("||                 Read the abnormal file               ||");
-		System.out.println("||            Test Exception and Self-Healing           ||");
-		System.out.println("||              1. Missing Base Price                   ||");
-		System.out.println("||              2. Missing an Option Price              ||");
-		System.out.println("||              3. Missing an Option Name               ||");
-		System.out.println("||              4. Exceeding OptionSet                  ||");
-		System.out.println("||              5. Missing Option                       ||");
-		System.out.println("==========================================================");
-		BuildAuto auto1 = new BuildAuto();
-		auto1.BuildAuto("FordZTW-Wrong.txt");
-		auto1.printAuto("FordZTW-Wrong.txt");
+		auto.BuildAuto("FordZTW.txt");
+		auto.BuildAuto("Audio-A8.txt");
+		auto.printAuto("Volkswagen Audio A8");
+		auto.printAuto("Ford Focus Wagon ZTW");
+//		System.out.println("1. Update the price of Pitch Black Clearcoat in Color from 0 to 100");
+//		auto.updateOptionPrice("Focus Wagon ZTW", "Color", "Pitch Black Clearcoat", 100);
+//		System.out.println("2. Update the name of OptionSet 'Color' to 'Car's Body Color'");
+//		auto.updateOptionSetName("Focus Wagon ZTW", "Color", "Car's Body Color");
+//		auto.printAuto("FordZTW.txt");
+//		
+//		/**
+//		 * Read the abnormal source file
+//		 */
+//		System.out.println("==========================================================");
+//		System.out.println("||                 Read the abnormal file               ||");
+//		System.out.println("||            Test Exception and Self-Healing           ||");
+//		System.out.println("||              1. Missing Base Price                   ||");
+//		System.out.println("||              2. Missing an Option Price              ||");
+//		System.out.println("||              3. Missing an Option Name               ||");
+//		System.out.println("||              4. Exceeding OptionSet                  ||");
+//		System.out.println("||              5. Missing Option                       ||");
+//		System.out.println("==========================================================");
+//		BuildAuto auto1 = new BuildAuto();
+//		auto1.BuildAuto("FordZTW-Wrong.txt");
+//		auto1.printAuto("FordZTW-Wrong.txt");
 	}
 }

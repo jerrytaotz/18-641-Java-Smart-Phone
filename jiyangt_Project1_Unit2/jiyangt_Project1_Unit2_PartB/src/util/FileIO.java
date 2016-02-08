@@ -24,7 +24,7 @@ public class FileIO {
 //	private final int OptionEleNum = 3;
 	
 	@SuppressWarnings("resource")
-	public Automobile buildAutoObject(String filename, Automobile auto) throws AutoException, IOException{
+	public Automobile buildAutoObject(String filename, Automobile auto) throws AutoException {
 		try {
 			FileReader file = new FileReader(filename);
 			BufferedReader buff = new BufferedReader(file);
@@ -39,40 +39,38 @@ public class FileIO {
 			}
 			try {
 				if(0 == autoInfo[0].length()) {
-					throw new AutoException(EnumerationAutoException.MissingModelName);
+					throw new AutoException(EnumerationAutoException.MissingMake);
 				}
 			} catch(AutoException e) {
 				ExceptionFixHelper fix = new ExceptionFixHelper();
-				autoInfo[0] = fix.fixMissingModelName();
+				autoInfo[0] = fix.fixMissingMake();
 			}
 			try {
 				if(0 == autoInfo[1].length()) {
+					throw new AutoException(EnumerationAutoException.MissingModel);
+				}
+			} catch(AutoException e) {
+				ExceptionFixHelper fix = new ExceptionFixHelper();
+				autoInfo[1] = fix.fixMissingModel();
+			}
+			try {
+				if(0 == autoInfo[2].length()) {
 					throw new AutoException(EnumerationAutoException.MissingBasePrice);
 				}
 			} catch(AutoException e) {
 				ExceptionFixHelper fix = new ExceptionFixHelper();
-				autoInfo[1] = fix.fixMissingBasePrice();
+				autoInfo[2] = fix.fixMissingBasePrice();
 			}
-			try {
-				if(0 == autoInfo[2].length()) {
-					throw new AutoException(EnumerationAutoException.MissingSize);
-				}
-			} catch(AutoException e) {
-				ExceptionFixHelper fix = new ExceptionFixHelper();
-				autoInfo[2] = fix.fixMissingSize();
-			}
-			String name = autoInfo[0];
-			float basePrice = Float.parseFloat(autoInfo[1]);
-			int Size = Integer.parseInt(autoInfo[2]);
-			auto = new Automobile(name, basePrice, Size);
+			String make = autoInfo[0];
+			String model = autoInfo[1];
+			float basePrice = Float.parseFloat(autoInfo[2]);
+			String name = make + " " + model;
+			auto = new Automobile(make, model, basePrice);
 			/**
 			 * Set values of OptionSet
 			 * Set values of Option
 			 */
 			boolean eof = false;
-			int OptionSetSize = 0;
-			int OptionSetCount = 0;
-			int OptionCount = 0;
 			while(!eof) {
 				String line = buff.readLine();
 				if(line == null) {
@@ -81,16 +79,6 @@ public class FileIO {
 				else {
 					String[] elements = this.splitString(line);
 					if("Item".equals(elements[0])) {
-						try {
-							if(OptionCount != OptionSetSize) {
-								throw new AutoException(EnumerationAutoException.MissingOption);
-								//msg += "Before content '" + line + "' should have more 'Option' items\n";
-							}
-						} catch(AutoException e) {
-							System.out.println(line);
-							ExceptionFixHelper fix = new ExceptionFixHelper();
-							auto = fix.fixMissingOption(auto, OptionSetCount, OptionCount, OptionSetSize);
-						}
 						try {
 							if(0 == elements[1].length()) {
 								throw new AutoException(EnumerationAutoException.MissingOptionSetName);
@@ -101,41 +89,19 @@ public class FileIO {
 							elements[1] = fix.fixMissingOptionSetName();
 						}
 						String OptionSetName = elements[1];
+						auto.setOpest(OptionSetName);
+					}
+					else if("Option".equals(elements[0])) {
 						try {
-							if(0 == elements[2].length()) {
-								throw new AutoException(EnumerationAutoException.MissingOptionSetSize);
+							if(0 == elements[1].length()) {
+								throw new AutoException(EnumerationAutoException.MissingOptionSetName);
 							}
 						} catch(AutoException e) {
 							System.out.println(line);
 							ExceptionFixHelper fix = new ExceptionFixHelper();
-							elements[2] = fix.fixMissingOptionSetSize(OptionSetName);
+							elements[1] = fix.fixMissingOptionSetName();
 						}
-						OptionSetSize = Integer.parseInt(elements[2]);
-						try {
-							if(OptionSetCount < Size) {
-								auto.setOpest(OptionSetCount, OptionSetName, OptionSetSize);
-								OptionSetCount ++;
-								OptionCount = 0;
-							}
-							else {
-								throw new AutoException(EnumerationAutoException.ExceedingOptionSet);
-								//msg += "Item content '" + line + "' is out of the boundary\n";
-							}
-						} catch(AutoException e) {
-							ExceptionFixHelper fix = new ExceptionFixHelper();
-							auto = fix.fixExceedingOptionSet(auto, OptionSetName, OptionSetSize);
-							if(Size == auto.getAllOpset().length) {
-								break;
-							}
-							else {
-								Size = auto.getAllOpset().length;
-								OptionSetCount ++;
-								OptionCount = 0;
-							}
-						}
-						
-					}
-					else if("Option".equals(elements[0])) {
+						String opsetName = elements[1];
 						try {
 							if(0 == elements[2].length()) {
 								throw new AutoException(EnumerationAutoException.MissingOptionName);
@@ -143,7 +109,7 @@ public class FileIO {
 						} catch(AutoException e) {
 							System.out.println(line);
 							ExceptionFixHelper fix = new ExceptionFixHelper();
-							elements[2] = fix.fixMissingOptionName(elements[1]);
+							elements[2] = fix.fixMissingOptionName(opsetName);
 						}
 						String option_name = elements[2];
 						try {
@@ -156,40 +122,9 @@ public class FileIO {
 							elements[3] = fix.fixMissingOptionPrice(option_name);
 						}
 						float option_price = Float.parseFloat(elements[3]);
-						try {
-							if(OptionCount < OptionSetSize) {
-								auto.setOption(OptionSetCount-1, OptionCount, option_name, option_price);
-							}
-							else {
-								throw new AutoException(EnumerationAutoException.ExceedingOption);
-								//msg += "Option content '" + line + "' is out of the boundary\n";
-							}
-						} catch(AutoException e) {
-							ExceptionFixHelper fix = new ExceptionFixHelper();
-							auto= fix.fixExceedingOption(auto, elements[1], OptionSetCount, OptionCount, option_name, option_price);
-							OptionSetSize = auto.getOptionSetSize(elements[1]);
-							OptionCount = OptionSetSize - 1;
-						}
-						OptionCount ++;
+						auto.setOption(opsetName, option_name, option_price);
 					}
 				}
-			}
-			try {
-				if(OptionCount < OptionSetSize) {
-					throw new AutoException(EnumerationAutoException.MissingOption);
-				}
-			} catch(AutoException e) {
-				ExceptionFixHelper fix = new ExceptionFixHelper();
-				auto = fix.fixMissingOption(auto, OptionSetCount, OptionCount, OptionSetSize);
-			}
-			try {
-				if(OptionSetCount < Size) {
-					throw new AutoException(EnumerationAutoException.MissingOptionSet);
-					//msg += "Should have more \"OptionSet\" items";
-				}
-			} catch(AutoException e) {
-				ExceptionFixHelper fix = new ExceptionFixHelper();
-				auto = fix.fixMissingOptionSet(auto, OptionSetCount, Size);
 			}
 			buff.close();
 		}

@@ -2,17 +2,16 @@ package exception;
 
 public enum EnumerationAutoException {
 	WrongFileName(1),
-	MissingModelName(2),
-	MissingBasePrice(3),
-	MissingSize(4),
+	MissingMake(2),
+	MissingModel(3),
+	MissingBasePrice(4),
 	MissingOptionSetName(5),
 	MissingOptionSetSize(6),
 	MissingOptionName(7),
 	MissingOptionPrice(8),
-	MissingOptionSet(9),
-	MissingOption(10),
-	ExceedingOptionSet(11),
-	ExceedingOption(12);
+	WrongCarModel(9),
+	WrongOptionSetName(10),
+	WrongOptionName(11);
 	
 	private int exceptionIndex;
 	

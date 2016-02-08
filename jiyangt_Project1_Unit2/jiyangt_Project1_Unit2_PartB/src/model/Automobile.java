@@ -9,6 +9,11 @@ package model;
  */
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
+import exception.AutoException;
+import exception.EnumerationAutoException;
+import model.OptionSet.Option;
 
 public class Automobile implements Serializable{
 	/**
@@ -16,8 +21,11 @@ public class Automobile implements Serializable{
 	 */
 	private static final long serialVersionUID = 6975652196033983624L;
 	private String name;
+	private String make;
+	private String model;
 	private float basePrice;
-	private OptionSet[] opset;
+	private ArrayList<OptionSet> OptionSet;
+	private ArrayList<Option> choice;
 	
 	/**
 	 * Constructor
@@ -26,10 +34,13 @@ public class Automobile implements Serializable{
 		
 	}
 	
-	public Automobile(String name, float basePrice, int Size) {
-		this.name = name;
+	public Automobile(String make, String model, float basePrice) {
+		this.name = make + " " + model;
+		this.make = make;
+		this.model = model;
 		this.basePrice = basePrice;
-		this.opset = new OptionSet[Size];
+		this.OptionSet = new ArrayList<OptionSet>();
+		this.choice = new ArrayList<Option>();
 	}
 	
 	/**
@@ -42,20 +53,42 @@ public class Automobile implements Serializable{
 		return this.name;
 	}
 	
+	public String getMake() {
+		return this.make;
+	}
+	
+	public String getModel() {
+		return this.model;
+	}
+	
 	public float getBasePrice() {
 		return this.basePrice;
 	}
 	
-	public OptionSet[] getAllOpset() {
-		return this.opset;
+	public ArrayList<OptionSet> getAllOpset() {
+		return this.OptionSet;
 	}
 	
-	public int getOptionSetSize(String opset_name) {
-		return this.findOpset(opset_name).getAllOpt().length;
+	public int getSize() {
+		return this.OptionSet.size();
 	}
 	
-	public String getOptionSetName(int index) {
-		return this.findOpset(index).getName();
+	public int getOptionSetSize(String opset_name) throws AutoException {
+		return this.findOpset(opset_name).getAllOpt().size();
+	}
+	
+	public Option getOption(String opsetName, String optionName) throws AutoException {
+		if(findOpset(opsetName) != null) {
+			return this.findOpset(opsetName).findOpt(optionName);
+		}
+		return null;
+	}
+	
+	public float getOptionPrice(String opsetName, String optionName) throws AutoException {
+		if(findOpset(opsetName) != null) {
+			return this.getOption(opsetName, optionName).getOptPrice();
+		}
+		return 0;
 	}
 	
 	/**
@@ -71,75 +104,51 @@ public class Automobile implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public void setMake(String make) {
+		this.make = make;
+	}
+	
+	public void setModel(String model) {
+		this.model = model;
+	}
+	
 	public void setBasePrice(float basePrice) {
 		this.basePrice = basePrice;
 	}
-	public void setOpest(int index, String name, int OptionSetSize) {
-		if(this.CheckIndex(index)) {
-			opset[index] = new OptionSet(name, OptionSetSize);
-		}
+	
+	public void setOpest(String name) {
+		this.OptionSet.add(new OptionSet(name));
 	}
-	public void setOpset(String name, int OptionSetSize) {
-		for(int i=0; i<opset.length; i++) {
-			if(opset[i] == null) {
-				opset[i] = new OptionSet(name, OptionSetSize);
-			}
-		}
-	}
-	public void setAllOpset(OptionSet[] opset) {
-		this.opset = opset;
+	
+	public void setAllOpset(ArrayList<OptionSet> opset) {
+		this.OptionSet = opset;
 	}
 	
 	/**
 	 * Option Part
+	 * @throws AutoException 
 	 */
-	public void setOption(int opset_index, String name, float price) {
-		OptionSet temp = this.findOpset(opset_index);
-		if(temp != null) {
-			temp.setOpt(name, price);
-		}
-	}
-	public void setOption(String opset_name, String name, float price) {
+	public void setOption(String opset_name, String name, float price) throws AutoException {
 		OptionSet temp = this.findOpset(opset_name);
 		if(temp != null) {
 			temp.setOpt(name, price);
-		}
-	}
-	public void setOption(int opset_index, int option_index, String name, float price) {
-		OptionSet temp = this.findOpset(opset_index);
-		if(temp != null) {
-			temp.setOpt(option_index, name, price);
-		}
-	}
-	public void setOption(String opset_name, int option_index, String name, float price) {
-		OptionSet temp = this.findOpset(opset_name);
-		if(temp != null) {
-			temp.setOpt(option_index, name, price);
 		}
 	}
 	
 	/**
 	 * Find
 	 * Find OptionSet with name
+	 * @throws AutoException 
 	 */
-	public OptionSet findOpset(int index) {
-		if(index < this.opset.length && index >= 0){
-			return this.opset[index];
-		}
-		else{
-			return null;
-		}
-	}
 	
-	public OptionSet findOpset(String name) {
-		for(int i=0; i<opset.length; i++) {
-			if(opset[i] != null) {
-				if(opset[i].getName().equals(name)) {
-					return opset[i];
-				}
+	public OptionSet findOpset(String name) throws AutoException {
+		for(OptionSet opset: this.OptionSet) {
+			if(opset.getName().equals(name)) {
+				return opset;
 			}
 		}
-		return null;
+		throw new AutoException(EnumerationAutoException.WrongOptionSetName);
 	}
 	
 	/**
@@ -149,48 +158,20 @@ public class Automobile implements Serializable{
 	 */
 	/**
 	 * OptionSet Part
+	 * @throws AutoException 
 	 */
-	public void deleteOpset(int index) {
-		if(this.CheckIndex(index)) {
-			this.opset[index] = null;
-		}
-	}
-	public void deleteOpset(String name) {
-		for(int i=0; i<this.opset.length; i++) {
-			if(this.opset[i] != null) {
-				if(this.opset[i].getName().equals(name)) {
-					this.opset[i] = null;
-				}
-			}
-		}
+	public void deleteOpset(String name) throws AutoException {
+		OptionSet temp = this.findOpset(name);
+		this.OptionSet.remove(temp);
 	}
 	
 	/**
 	 * Option Part
+	 * @throws AutoException 
 	 */
-	public void deleteOption(int opset_index, int option_index) {
-		OptionSet temp = this.findOpset(opset_index);
-		if(temp != null) {
-			temp.deleteOpt(option_index);
-		}
-	}
-	public void deleteOption(int opset_index, String option_name) {
-		OptionSet temp = this.findOpset(opset_index);
-		if(temp != null) {
-			temp.deleteOpt(option_name);
-		}
-	}
-	public void deleteOption(String opset_name, int option_index) {
-		OptionSet temp = this.findOpset(opset_name);
-		if(temp != null) {
-			temp.deleteOpt(option_index);
-		}
-	}
-	public void deleteOption(String opset_name, String option_name) {
-		OptionSet temp = this.findOpset(opset_name);
-		if(temp != null) {
-			temp.deleteOpt(option_name);
-		}
+	public void deleteOption(String opsetName, String optionName) throws AutoException {
+		Option opt = this.getOption(opsetName, optionName);
+		this.findOpset(opsetName).deleteOpt(optionName);
 	}
 	
 	
@@ -201,115 +182,70 @@ public class Automobile implements Serializable{
 	 */
 	/**
 	 * OptionSet Part
+	 * @throws AutoException 
 	 */
-	public void updateOpset(int index, String name, int OptionSetSize) {
-		if(index < this.opset.length && index >= 0){
-			this.opset[index] = new OptionSet(name, OptionSetSize);
-		}
-	}
-	public void updateOpset(String old_name, String name, int OptionSetSize) {
-		for(int i=0; i<opset.length; i++) {
-			if(opset[i] != null) {
-				if(opset[i].getName().equals(old_name)) {
-					this.opset[i] = new OptionSet(name, OptionSetSize);
-				}
-			}
+	public void updateOpset(String old_name, String name) throws AutoException {
+		OptionSet temp = this.findOpset(old_name);
+		if(temp != null) {
+			temp = new OptionSet(name);
 		}
 	}
 	
-	public void updateOpsetName(int index, String name) {
-		OptionSet temp = this.findOpset(index);
-		if(temp != null) {
-			temp.setName(name);
-		}
-	}
-	public void updateOpsetName(String old_name, String name) {
+	public void updateOpsetName(String old_name, String name) throws AutoException {
 		OptionSet temp = this.findOpset(old_name);
 		if(temp != null) {
 			temp.setName(name);
 		}
 	}
-	
-	public void updateOpsetSize_Add(int index, int OptionSetSize) {
-		if(index < this.opset.length && index >= 0){
-			OptionSet old_opset = this.opset[index];
-			this.opset[index] = new OptionSet(this.opset[index].getName(), OptionSetSize);
-			for(int j=0; j<old_opset.getAllOpt().length; j++) {
-				if(j<OptionSetSize) {
-					this.opset[index].getAllOpt()[j] = old_opset.getAllOpt()[j];
-				}
-			}
-		}
-	}
-	public void updateOpsetSize_Add(String name, int OptionSetSize) {
-		for(int i=0; i<opset.length; i++) {
-			if(opset[i] != null) {
-				if(opset[i].getName().equals(name)) {
-					OptionSet old_opset = this.opset[i];
-					this.opset[i] = new OptionSet(name, OptionSetSize);
-					for(int j=0; j<old_opset.getAllOpt().length; j++) {
-						if(j<OptionSetSize) {
-							this.opset[i].getAllOpt()[j] = old_opset.getAllOpt()[j];
-						}
-					}
-				}
-			}
-		}
+	public void updateOpsetSize_Add(String name) {
+		this.OptionSet.add(new OptionSet(name));
 	}
 	
 	/**
 	 * Option Part
+	 * @throws AutoException 
 	 */
-	public void updateOptionName(int opset_index, int option_index, String name) {
-		OptionSet temp = this.findOpset(opset_index);
-		if(temp != null) {
-			temp.updateOptName(option_index, name);
-		}
-	}
-	public void updateOptionName(int opset_index, String old_name, String name) {
-		OptionSet temp = this.findOpset(opset_index);
-		if(temp != null) {
-			temp.updateOptName(name, name);
-		}
-	}
-	public void updateOptionName(String opset_name, int option_index, String name) {
+	public void updateOptionName(String opset_name, String old_name, String name) throws AutoException {
 		OptionSet temp = this.findOpset(opset_name);
-		if(temp != null) {
-			temp.updateOptName(option_index, name);
-		}
-	}
-	public void updateOptionName(String opset_name, String old_name, String name) {
-		OptionSet temp = this.findOpset(opset_name);
-		if(temp != null) {
-			temp.updateOptName(old_name, name);
-		}
+		temp.updateOptName(old_name, name);
 	}
 	
-	public void updateOptionPrice(int opset_index, int option_index, float price) {
-		OptionSet temp = this.findOpset(opset_index);
-		if(temp != null) {
-			temp.updateOptPrice(option_index, price);
-		}
-	}
-	public void updateOptionPrice(int opset_index, String option_name, float price) {
-		OptionSet temp = this.findOpset(opset_index);
-		if(temp != null) {
-			temp.updateOptPrice(option_name, price);
-		}
-	}
-	public void updateOptionPrice(String opset_name, int option_index, float price) {
+	public void updateOptionPrice(String opset_name, String option_name, float price) throws AutoException {
 		OptionSet temp = this.findOpset(opset_name);
-		if(temp != null) {
-			temp.updateOptPrice(option_index, price);
-		}
-	}
-	public void updateOptionPrice(String opset_name, String option_name, float price) {
-		OptionSet temp = this.findOpset(opset_name);
-		if(temp != null) {
-			temp.updateOptPrice(option_name, price);
-		}
+		temp.updateOptPrice(option_name, price);
 	}
 	
+	/**
+	 * Choice Part
+	 * @throws AutoException 
+	 *  
+	 */
+	public String getOptionChoice(String setName) throws AutoException {
+		return this.findOpset(setName).getOptionChoiceName();
+	}
+	
+	public float getOptionChoicePrice(String setName) throws AutoException {
+		return this.findOpset(setName).getOptionChoicePrice();
+	}
+	
+	public void setOptionChoice(String setName, String optionName) throws AutoException {
+		OptionSet opset = this.findOpset(setName);
+		this.choice.add(opset.getOption(optionName));
+		opset.setOptionChoice(optionName);
+	}
+	
+	public float getTotalPrice() {
+		float total = this.basePrice;
+		for(Option ch: this.choice) {
+			total += ch.getOptPrice();
+		}
+		return total;
+	}
+	
+	
+	/**
+	 * Print Part
+	 */
 	public void printAll() {
 		this.printBasic();
 		this.printOptions();
@@ -327,18 +263,15 @@ public class Automobile implements Serializable{
 		System.out.println("*************************************************************");
 		System.out.println("*                       Car's Options                       *");
 		System.out.println("*************************************************************");
-		for(int i=0; i<this.opset.length; i++) {
-			if(this.opset[i] != null) {
-				System.out.println("" + (i+1) + ". " + this.opset[i].getName() + ":");
-				this.opset[i].printAllOptions();
-			}
-			else {
-				System.out.println("" + (i+1) + ". This item has been deleted or hasn't been set!");
-			}
+		int i = 1;
+		for(OptionSet opt: this.OptionSet) {
+			System.out.println("" + i + ". " + opt.getName() + ":");
+			opt.printAllOptions();
+			i++;
 		}
 	}
 	
-	public void printOneOption(String name) {
+	public void printOneOption(String name) throws AutoException {
 		OptionSet opset_find = this.findOpset(name);
 		if(opset_find != null) {
 			System.out.println(opset_find.getName() + ":");
@@ -349,12 +282,14 @@ public class Automobile implements Serializable{
 		}
 	}
 	
-	private boolean CheckIndex(int index) {
-		if(index<this.opset.length && index>=0) {
-			return true;
-		}
-		else {
-			return false;
+	public void printTotalPrice() {
+		System.out.println("Total Price：" + this.getTotalPrice());
+	}
+	
+	public void printChoice() {
+		for(Option ch: this.choice) {
+			System.out.println("Option: "+ ch.getOptName() + "-> Price: " + ch.getOptPrice());
 		}
 	}
+	
 }

@@ -1,6 +1,7 @@
 package adapter;
 import java.io.IOException;
 
+import model.CarModels;
 import exception.*;
 /**
  * @author Jiyang Tao
@@ -13,29 +14,38 @@ import exception.*;
 import model.*;
 import util.*;
 public abstract class ProxyAutomobile {
-	private static Automobile a1;
+	private static CarModels autoLists = new CarModels();
 	
 	public void BuildAuto(String fileName) {
-		FileIO fio = new FileIO();
 		try {
-			a1 = fio.buildAutoObject(fileName, a1);
+			autoLists.setAutomobile(fileName);
 		} catch(AutoException e) {
 			this.fix(e.getExceptionIndex());
-		} catch(IOException e) {
-			System.out.println(e.toString());
 		}
 	}
 	
 	public void printAuto(String Modelname) {
-		a1.printAll();
+		try {
+			autoLists.getAutomobile(Modelname).printAll();
+		} catch (AutoException e) {
+			this.fix(e.getExceptionIndex());
+		}
 	}
 	
 	public void updateOptionSetName(String ModelName, String OptionSetName, String newName) {
-		a1.updateOpsetName(OptionSetName, newName);
+		try {
+			autoLists.getAutomobile(ModelName).updateOpsetName(OptionSetName, newName);
+		} catch (AutoException e) {
+			this.fix(e.getExceptionIndex());
+		}
 	}
 	
 	public void updateOptionPrice(String ModelName, String OptionName, String Option, float newPrice) {
-		a1.updateOptionPrice(OptionName, Option, newPrice);
+		try {
+			autoLists.getAutomobile(ModelName).updateOptionPrice(OptionName, Option, newPrice);
+		} catch (AutoException e) {
+			this.fix(e.getExceptionIndex());
+		}
 	}
 	
 	public void fix(int errno) {
@@ -44,8 +54,6 @@ public abstract class ProxyAutomobile {
 		case 1:
 			String filename = fix.fixWrongFileName();
 			this.BuildAuto(filename);
-			break;
-		case 2:
 			break;
 		default:
 			break;
