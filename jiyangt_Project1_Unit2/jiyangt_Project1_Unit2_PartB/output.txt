@@ -1,12 +1,36 @@
 ==========================================================
 ||      Read the Normal file, wrong file name first     ||
-||                Test the Update Method                ||
 ==========================================================
 Please input file name again:FordZTW.txt
 *************************************************************
 *             Car's Model And Basic Information             *
 *************************************************************
-Model: Focus Wagon ZTW
+Model: Volkswagen Audio A8
+Base Price: $23333.0
+*************************************************************
+*                       Car's Options                       *
+*************************************************************
+1. Color:
+  1. Sky Gray: $0.0
+  2. White: $0.0
+  3. Deep Blue: $0.0
+2. Transmission:
+  1. Standard: $0.0
+  2. Automatic: $500.0
+3. Brakes/Traction Control:
+  1. Standard: $0.0
+  2. ABS: $800.0
+  3. ABS with Advance Trac: $2000.0
+4. Side Impact Air Bags:
+  1. None: $0.0
+  2. Selected: $350.0
+5. Seats:
+  1. Normal: $0.0
+  2. Dermis: $595.0
+*************************************************************
+*             Car's Model And Basic Information             *
+*************************************************************
+Model: Ford Focus Wagon ZTW
 Base Price: $18445.0
 *************************************************************
 *                       Car's Options                       *
@@ -35,17 +59,23 @@ Base Price: $18445.0
 5. Power Moonroof:
   1. None: $0.0
   2. Selected: $595.0
-1. Update the price of Pitch Black Clearcoat in Color from 0 to 100
-2. Update the name of OptionSet 'Color' to 'Car's Body Color'
+
+
+
+==========================================================
+||                Test the Update Method                ||
+==========================================================
+Update the price of selected power moonroof from 595 to 650
+Update the 'Color' to 'Body Color'
 *************************************************************
 *             Car's Model And Basic Information             *
 *************************************************************
-Model: Focus Wagon ZTW
+Model: Ford Focus Wagon ZTW
 Base Price: $18445.0
 *************************************************************
 *                       Car's Options                       *
 *************************************************************
-1. Car's Body Color:
+1. Body Color:
   1. Fort Knox Gold Clearcoat Metallic: $0.0
   2. Liquid Grey Clearcoat Metallic: $0.0
   3. Infra-Red Clearcoat: $0.0
@@ -54,7 +84,7 @@ Base Price: $18445.0
   6. French Blue Clearcoat Metallic: $0.0
   7. Twilight Blue Clearcoat Metallic: $0.0
   8. CD Silver Clearcoat Metallic: $0.0
-  9. Pitch Black Clearcoat: $100.0
+  9. Pitch Black Clearcoat: $0.0
   10. Cloud 9 White Clearcoat: $0.0
 2. Transmission:
   1. Automatic: $0.0
@@ -68,30 +98,53 @@ Base Price: $18445.0
   2. Selected: $350.0
 5. Power Moonroof:
   1. None: $0.0
-  2. Selected: $595.0
+  2. Selected: $650.0
+
+
+
+==========================================================
+||                Test the Delete Method                ||
+==========================================================
+Delete the OptionSet 'Body Color' I just updated
+*************************************************************
+*             Car's Model And Basic Information             *
+*************************************************************
+Model: Ford Focus Wagon ZTW
+Base Price: $18445.0
+*************************************************************
+*                       Car's Options                       *
+*************************************************************
+1. Transmission:
+  1. Automatic: $0.0
+  2. Standard: $-815.0
+2. Brakes/Traction Control:
+  1. Standard: $0.0
+  2. ABS: $400.0
+  3. ABS with Advance Trac: $1625.0
+3. Side Impact Air Bags:
+  1. None: $0.0
+  2. Selected: $350.0
+4. Power Moonroof:
+  1. None: $0.0
+  2. Selected: $650.0
+
+
+
 ==========================================================
 ||                 Read the abnormal file               ||
 ||            Test Exception and Self-Healing           ||
-||              1. Missing Base Price                   ||
-||              2. Missing an Option Price              ||
-||              3. Missing an Option Name               ||
-||              4. Exceeding OptionSet                  ||
-||              5. Missing Option                       ||
+||              1. Missing an Option Price              ||
+||              2. Missing an Option Name               ||
 ==========================================================
-Please input the base price to continue:18875
 Option>>Brakes/Traction Control>>ABS>>>>Option
-Please input the price of the Option 'ABS' to continue:400
-Option>>Side Impact Air Bags>>>>0>>Option
-Please input the name of Option in OptionSet 'Side Impact Air Bags' to continue:None
-Do you want to keep the exceeding OptionSet? (Y/N)Y
-Do you want to add more Option to 'Power Moonroof'? (Y/N)Y
-Please input the option name: None
-Please input the option price: 0
+Please input the price of the Option 'ABS' to continue:500
+Option>>Side Impact Air Bags>>>>350>>Option
+Please input the name of Option in OptionSet 'Side Impact Air Bags' to continue:Standard
 *************************************************************
 *             Car's Model And Basic Information             *
 *************************************************************
-Model: Focus Wagon ZTW
-Base Price: $18875.0
+Model: Ford Focus 2016
+Base Price: $18445.0
 *************************************************************
 *                       Car's Options                       *
 *************************************************************
@@ -100,22 +153,28 @@ Base Price: $18875.0
   2. Liquid Grey Clearcoat Metallic: $0.0
   3. Infra-Red Clearcoat: $0.0
   4. Grabber Green Clearcoat Metallic: $0.0
-  5. Sangria Red Clearcoat Metallic: $0.0
-  6. French Blue Clearcoat Metallic: $0.0
-  7. Twilight Blue Clearcoat Metallic: $0.0
-  8. CD Silver Clearcoat Metallic: $0.0
-  9. Pitch Black Clearcoat: $0.0
-  10. Cloud 9 White Clearcoat: $0.0
 2. Transmission:
   1. Automatic: $0.0
   2. Standard: $-815.0
 3. Brakes/Traction Control:
   1. Standard: $0.0
-  2. ABS: $400.0
+  2. ABS: $500.0
   3. ABS with Advance Trac: $1625.0
 4. Side Impact Air Bags:
   1. None: $0.0
-  2. Selected: $350.0
+  2. Standard: $350.0
 5. Power Moonroof:
-  1. Selected: $595.0
-  2. None: $0.0
+  1. None: $0.0
+  2. Selected: $595.0
+
+
+
+==========================================================
+||                   Test the Choice                    ||
+==========================================================
+Option: Sky Gray-> Price: 0.0
+Option: Automatic-> Price: 500.0
+Option: ABS with Advance Trac-> Price: 2000.0
+Option: Selected-> Price: 350.0
+Option: Normal-> Price: 0.0
+Total Price：26183.0

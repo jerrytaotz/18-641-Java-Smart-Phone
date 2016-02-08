@@ -48,6 +48,14 @@ public abstract class ProxyAutomobile {
 		}
 	}
 	
+	public void deleteOptionSet(String ModelName, String OptionName) {
+		try {
+			autoLists.deleteOptionSet(ModelName, OptionName);
+		} catch (AutoException e) {
+			this.fix(e.getExceptionIndex());
+		}
+	}
+	
 	public void fix(int errno) {
 		ExceptionFixHelper fix = new ExceptionFixHelper();
 		switch(errno) {

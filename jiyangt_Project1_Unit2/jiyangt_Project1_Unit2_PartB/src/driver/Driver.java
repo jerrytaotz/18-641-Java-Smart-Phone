@@ -13,41 +13,71 @@ package driver;
  */
 
 import adapter.BuildAuto;
+import exception.AutoException;
+import model.Automobile;
+import util.FileIO;
 
 public class Driver {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws AutoException {
 		/**
 		 * Read the normal source file
 		 */
 		System.out.println("==========================================================");
 		System.out.println("||      Read the Normal file, wrong file name first     ||");
-		System.out.println("||                Test the Update Method                ||");
 		System.out.println("==========================================================");
 		BuildAuto auto = new BuildAuto();
-		auto.BuildAuto("FordZTW.txt");
+		auto.BuildAuto("FordZTW1.txt");
 		auto.BuildAuto("Audio-A8.txt");
 		auto.printAuto("Volkswagen Audio A8");
 		auto.printAuto("Ford Focus Wagon ZTW");
-//		System.out.println("1. Update the price of Pitch Black Clearcoat in Color from 0 to 100");
-//		auto.updateOptionPrice("Focus Wagon ZTW", "Color", "Pitch Black Clearcoat", 100);
-//		System.out.println("2. Update the name of OptionSet 'Color' to 'Car's Body Color'");
-//		auto.updateOptionSetName("Focus Wagon ZTW", "Color", "Car's Body Color");
-//		auto.printAuto("FordZTW.txt");
-//		
-//		/**
-//		 * Read the abnormal source file
-//		 */
-//		System.out.println("==========================================================");
-//		System.out.println("||                 Read the abnormal file               ||");
-//		System.out.println("||            Test Exception and Self-Healing           ||");
-//		System.out.println("||              1. Missing Base Price                   ||");
-//		System.out.println("||              2. Missing an Option Price              ||");
-//		System.out.println("||              3. Missing an Option Name               ||");
-//		System.out.println("||              4. Exceeding OptionSet                  ||");
-//		System.out.println("||              5. Missing Option                       ||");
-//		System.out.println("==========================================================");
-//		BuildAuto auto1 = new BuildAuto();
-//		auto1.BuildAuto("FordZTW-Wrong.txt");
-//		auto1.printAuto("FordZTW-Wrong.txt");
+		
+		System.out.println("\n\n");
+		System.out.println("==========================================================");
+		System.out.println("||                Test the Update Method                ||");
+		System.out.println("==========================================================");
+		System.out.println("Update the price of selected power moonroof from 595 to 650");
+		auto.updateOptionPrice("Ford Focus Wagon ZTW", "Power Moonroof", "Selected", 650);
+		System.out.println("Update the 'Color' to 'Body Color'");
+		auto.updateOptionSetName("Ford Focus Wagon ZTW", "Color", "Body Color");
+		auto.printAuto("Ford Focus Wagon ZTW");
+		
+		System.out.println("\n\n");
+		System.out.println("==========================================================");
+		System.out.println("||                Test the Delete Method                ||");
+		System.out.println("==========================================================");
+		System.out.println("Delete the OptionSet 'Body Color' I just updated");
+		auto.deleteOptionSet("Ford Focus Wagon ZTW", "Body Color");
+		auto.printAuto("Ford Focus Wagon ZTW");
+		
+		/**
+		 * Read the abnormal source file
+		 */
+		System.out.println("\n\n");
+		System.out.println("==========================================================");
+		System.out.println("||                 Read the abnormal file               ||");
+		System.out.println("||            Test Exception and Self-Healing           ||");
+		System.out.println("||              1. Missing an Option Price              ||");
+		System.out.println("||              2. Missing an Option Name               ||");
+		System.out.println("==========================================================");
+		BuildAuto auto1 = new BuildAuto();
+		auto1.BuildAuto("FordZTW-Wrong.txt");
+		auto1.printAuto("Ford Focus 2016");
+		
+		/**
+		 * Test Choice
+		 */
+		System.out.println("\n\n");
+		System.out.println("==========================================================");
+		System.out.println("||                   Test the Choice                    ||");
+		System.out.println("==========================================================");
+		Automobile autochoice = null;
+		autochoice = new FileIO().buildAutoObject("Audio-A8.txt", autochoice);
+		autochoice.setOptionChoice("Color", "Sky Gray");
+		autochoice.setOptionChoice("Transmission", "Automatic");
+		autochoice.setOptionChoice("Brakes/Traction Control", "ABS with Advance Trac");
+		autochoice.setOptionChoice("Side Impact Air Bags", "Selected");
+		autochoice.setOptionChoice("Seats", "Normal");
+		autochoice.printChoice();
+		autochoice.printTotalPrice();
 	}
 }

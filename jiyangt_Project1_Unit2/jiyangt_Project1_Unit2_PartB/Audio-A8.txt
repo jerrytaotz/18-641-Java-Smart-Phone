@@ -12,5 +12,5 @@ Item>>Brakes/Traction Control>>ItemOption>>Brakes/Traction Control>>Standard>>0
 Option>>Brakes/Traction Control>>ABS>>800>>Option
 Option>>Brakes/Traction Control>>ABS with Advance Trac>>2000>>OptionItem>>Side Impact Air Bags>>ItemOption>>Side Impact Air Bags>>None>>0>>Option
 Option>>Side Impact Air Bags>>Selected>>350>>OptionItem>>Seats>>Item
-Option>>Seats>>Nromal>>0>>Option
+Option>>Seats>>Normal>>0>>Option
 Option>>Seats>>Dermis>>595>>Option

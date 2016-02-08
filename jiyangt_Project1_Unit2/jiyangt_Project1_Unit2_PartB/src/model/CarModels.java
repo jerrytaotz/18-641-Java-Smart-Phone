@@ -109,7 +109,7 @@ public class CarModels {
 	 * Deleter
 	 * @throws AutoException 
 	 */
-	public void deleteAutomobil(String name) throws AutoException {
+	public void deleteAutomobile(String name) throws AutoException {
 		Automobile auto = this.getAutomobile(name);
 		carsLists.remove(name);
 	}
