@@ -1,0 +1,135 @@
+==========================================================
+||              Read the Normal file first              ||
+==========================================================
+*************************************************************
+*             Car's Model And Basic Information             *
+*************************************************************
+Model: Ford Focus Wagon ZTW
+Base Price: $18445.0
+*************************************************************
+*                       Car's Options                       *
+*************************************************************
+1. Color:
+  1. Fort Knox Gold Clearcoat Metallic: $0.0
+  2. Liquid Grey Clearcoat Metallic: $0.0
+  3. Infra-Red Clearcoat: $0.0
+  4. Grabber Green Clearcoat Metallic: $0.0
+  5. Sangria Red Clearcoat Metallic: $0.0
+  6. French Blue Clearcoat Metallic: $0.0
+  7. Twilight Blue Clearcoat Metallic: $0.0
+  8. CD Silver Clearcoat Metallic: $0.0
+  9. Pitch Black Clearcoat: $0.0
+  10. Cloud 9 White Clearcoat: $0.0
+2. Transmission:
+  1. Automatic: $0.0
+  2. Standard: $-815.0
+3. Brakes/Traction Control:
+  1. Standard: $0.0
+  2. ABS: $400.0
+  3. ABS with Advance Trac: $1625.0
+4. Side Impact Air Bags:
+  1. None: $0.0
+  2. Selected: $350.0
+5. Power Moonroof:
+  1. None: $0.0
+  2. Selected: $595.0
+
+Thread #5
+[Model Name] Volkswagen Audio A8
+[OptionSet Name] Seats
+[Dermis] 236.0
+
+Thread #1
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] New_Color#1
+
+Thread #1
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] New_Color#2
+
+Thread #5
+[Model Name] Volkswagen Audio A8
+[OptionSet Name] Seats
+[Dermis] 235.0
+
+Thread #1
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] New_Color#3
+
+Thread #5
+[Model Name] Volkswagen Audio A8
+[OptionSet Name] Seats
+[Dermis] 234.0
+
+Thread #5
+[Model Name] Volkswagen Audio A8
+[OptionSet Name] Seats
+[Dermis] 233.0
+
+Thread #1
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] New_Color#4
+
+Thread #1
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] New_Color
+
+Thread #4
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] Brakes/Traction Control
+[ABS] 203.0
+
+Thread #4
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] Brakes/Traction Control
+[ABS] 202.0
+
+Thread #4
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] Brakes/Traction Control
+[ABS] 201.0
+
+Thread #4
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] Brakes/Traction Control
+[ABS] 200.0
+
+Thread #3
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] New Power Moonroof#1
+
+Thread #3
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] New Power Moonroof#2
+
+Thread #3
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] New Power Moonroof#3
+
+Thread #3
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] New Power Moonroof#4
+
+Thread #3
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] New Power Moonroof
+
+Thread #2
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] Transmission
+[Standard] -697.0
+
+Thread #2
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] Transmission
+[Standard] -698.0
+
+Thread #2
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] Transmission
+[Standard] -699.0
+
+Thread #2
+[Model Name] Ford Focus Wagon ZTW
+[OptionSet Name] Transmission
+[Standard] -700.0
