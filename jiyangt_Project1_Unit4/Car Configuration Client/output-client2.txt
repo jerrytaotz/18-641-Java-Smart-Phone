@@ -1,0 +1,22 @@
+Connecting To Server 192.168.1.16:8080...
+Connected to Port 8080
+Start working with 192.168.1.16:8080
+What To Do: 
+1. Upload A New Car
+2. Configure An Existing Car
+0. Quit
+
+Your Choice: 
+1
+Please input the name of model file: 
+FordZTW.txt
+File upload success
+What To Do: 
+1. Upload A New Car
+2. Configure An Existing Car
+0. Quit
+
+Your Choice: 
+0
+Close the Socke
+The scoket close

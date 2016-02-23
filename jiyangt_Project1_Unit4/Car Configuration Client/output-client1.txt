@@ -1,0 +1,123 @@
+Connecting To Server 192.168.1.16:8080...
+Connected to Port 8080
+Start working with 192.168.1.16:8080
+What To Do: 
+1. Upload A New Car
+2. Configure An Existing Car
+0. Quit
+
+Your Choice: 
+1
+Please input the name of model file: 
+model-Audio-A8.properties
+File upload success
+What To Do: 
+1. Upload A New Car
+2. Configure An Existing Car
+0. Quit
+
+Your Choice: 
+2
+1. Volkswagen Audio A8
+2. Ford Focus Wagon ZTW
+
+Your Choice: 
+2
+Your Configuration
+*************************************************************
+*             Car's Model And Basic Information             *
+*************************************************************
+Model: Ford Focus Wagon ZTW
+Base Price: $18445.0
+*************************************************************
+*                       Car's Options                       *
+*************************************************************
+1. Color:
+  1. Fort Knox Gold Clearcoat Metallic: $0.0
+  2. Liquid Grey Clearcoat Metallic: $0.0
+  3. Infra-Red Clearcoat: $0.0
+  4. Grabber Green Clearcoat Metallic: $0.0
+  5. Sangria Red Clearcoat Metallic: $0.0
+  6. French Blue Clearcoat Metallic: $0.0
+  7. Twilight Blue Clearcoat Metallic: $0.0
+  8. CD Silver Clearcoat Metallic: $0.0
+  9. Pitch Black Clearcoat: $0.0
+  10. Cloud 9 White Clearcoat: $0.0
+2. Transmission:
+  1. Automatic: $0.0
+  2. Standard: $-815.0
+3. Brakes/Traction Control:
+  1. Standard: $0.0
+  2. ABS: $400.0
+  3. ABS with Advance Trac: $1625.0
+4. Side Impact Air Bags:
+  1. None: $0.0
+  2. Selected: $350.0
+5. Power Moonroof:
+  1. None: $0.0
+  2. Selected: $595.0
+Car Make: Ford
+Car Model: Focus Wagon ZTW
+Car Base Price: $18445.0
+==================================
+OptionSet1: Color
+1. Fort Knox Gold Clearcoat Metallic: $0.0
+2. Liquid Grey Clearcoat Metallic: $0.0
+3. Infra-Red Clearcoat: $0.0
+4. Grabber Green Clearcoat Metallic: $0.0
+5. Sangria Red Clearcoat Metallic: $0.0
+6. French Blue Clearcoat Metallic: $0.0
+7. Twilight Blue Clearcoat Metallic: $0.0
+8. CD Silver Clearcoat Metallic: $0.0
+9. Pitch Black Clearcoat: $0.0
+10. Cloud 9 White Clearcoat: $0.0
+Your Choice (Number Only):
+5
+==================================
+OptionSet2: Transmission
+1. Automatic: $0.0
+2. Standard: $-815.0
+Your Choice (Number Only):
+1
+==================================
+OptionSet3: Brakes/Traction Control
+1. Standard: $0.0
+2. ABS: $400.0
+3. ABS with Advance Trac: $1625.0
+Your Choice (Number Only):
+3
+==================================
+OptionSet4: Side Impact Air Bags
+1. None: $0.0
+2. Selected: $350.0
+Your Choice (Number Only):
+2
+==================================
+OptionSet5: Power Moonroof
+1. None: $0.0
+2. Selected: $595.0
+Your Choice (Number Only):
+3
+Illegal Input, Need Type in Again!
+Your Choice (Number Only):
+2
+*************************************************************
+*             Car's Model And Basic Information             *
+*************************************************************
+Model: Ford Focus Wagon ZTW
+Base Price: $18445.0
+Option: Sangria Red Clearcoat Metallic-> Price: 0.0
+Option: Automatic-> Price: 0.0
+Option: ABS with Advance Trac-> Price: 1625.0
+Option: Selected-> Price: 350.0
+Option: Selected-> Price: 595.0
+Total Price：21015.0
+What To Do: 
+1. Upload A New Car
+2. Configure An Existing Car
+0. Quit
+
+Your Choice: 
+0
+Close the Socke
+The scoket close
