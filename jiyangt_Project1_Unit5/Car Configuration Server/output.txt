@@ -1,0 +1,73 @@
+Starting A New Server ...
+Server build successfully!
+Begin listening to the port: 8080
+Starting working on Port 8080
+*************************************************************
+*             Car's Model And Basic Information             *
+*************************************************************
+Model: Volkswagen Audio A8
+Base Price: $23333.0
+*************************************************************
+*                       Car's Options                       *
+*************************************************************
+1. Color:
+  1. Sky Gray: $0.0
+  2. White: $0.0
+  3. Deep Blue: $0.0
+2. Transmission:
+  1. TransmissionStandard: $0.0
+  2. Transmissionmatic: $500.0
+3. Brakes/Traction Control:
+  1. Standard: $0.0
+  2. ControlABS: $800.0
+  3. ControlABS with Advance Trac: $2000.0
+4. Side Impact Air Bags:
+  1. None: $0.0
+  2. Selected: $350.0
+5. Seats:
+  1. Normal: $0.0
+  2. Dermis: $595.0
+Model upload success!
+Starting working on Port 8080
+*************************************************************
+*             Car's Model And Basic Information             *
+*************************************************************
+Model: Ford Focus Wagon ZTW
+Base Price: $18445.0
+*************************************************************
+*                       Car's Options                       *
+*************************************************************
+1. Color:
+  1. Fort Knox Gold Clearcoat Metallic: $0.0
+  2. Liquid Grey Clearcoat Metallic: $0.0
+  3. Infra-Red Clearcoat: $0.0
+  4. Grabber Green Clearcoat Metallic: $0.0
+  5. Sangria Red Clearcoat Metallic: $0.0
+  6. French Blue Clearcoat Metallic: $0.0
+  7. Twilight Blue Clearcoat Metallic: $0.0
+  8. CD Silver Clearcoat Metallic: $0.0
+  9. Pitch Black Clearcoat: $0.0
+  10. Cloud 9 White Clearcoat: $0.0
+2. Transmission:
+  1. Automatic: $0.0
+  2. Standard: $-815.0
+3. Brakes/Traction Control:
+  1. Standard: $0.0
+  2. ABS: $400.0
+  3. ABS with Advance Trac: $1625.0
+4. Side Impact Air Bags:
+  1. None: $0.0
+  2. Selected: $350.0
+5. Power Moonroof:
+  1. None: $0.0
+  2. Selected: $595.0
+Model upload success!
+User Chose Ford Focus Wagon ZTW
+[Color->Sangria Red Clearcoat Metallic
+, Transmission->Automatic
+, Brakes/Traction Control->ABS with Advance Trac
+, Side Impact Air Bags->Selected
+, Power Moonroof->Selected
+]
+Close one socket
+Close one socket

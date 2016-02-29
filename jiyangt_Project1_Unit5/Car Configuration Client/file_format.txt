@@ -1,0 +1,18 @@
+Auto>>Name>>Auto
+Auto>>Base Price>>Auto
+Auto>>OptionSet size>>Auto
+Item>>OptionSet Name 1>>Option size 1>>Item
+Option>>Option Name 1>>price 1>>Option
+Option>>Option Name 2>>price 2>>Option
+……
+Item>>OptionSet Name 2>>Option size 2>>Item
+Option>>Option Name 1>>price 1>>Option
+Option>>Option Name 2>>price 2>>Option
+……
+.
+.
+.
+Item>>OptionSet Name n>>Option size n>>Item
+Option>>Option Name 1>>price 1>>Option
+Option>>Option Name 2>>price 2>>Option
+……
